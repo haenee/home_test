@@ -1,0 +1,523 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+  <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+  <title>Test</title>
+  <script type="text/javascript">
+      function add(num1,num2){
+        var sum = num1 +num2;
+        return sum;
+      }
+      console.dir(add);
+
+      var test1 = add(5,10);
+      console.dir(test1);
+
+
+
+      function initUI(){
+        var DocumentTag = document;
+        var bd = DocumentTag.body,
+            links = DocumentTag.getElementsByTagName("a"),
+            i=0,
+            len = links.length;
+        while(i<len){
+            update(links.length);
+        };
+
+        DocumentTag.getElementById("go-btn").onclick =function(){
+            start();
+        };
+        bd.classNam = "active";
+      }
+      //initUI();
+
+     
+      var code = function(a,b){
+         return a+b;
+      }
+
+      function execute(code){
+        console.log(eval(code));
+
+        function subroutine(){
+            return window;
+        }
+
+        var w = subroutine();
+        return w;
+      }
+
+      console.dir(execute("var window ={};"));
+
+      window.onload = function(){
+
+          function saveDocument(id){
+            console.log(id);
+          }
+
+          function assignEvent(){
+            var id = "xid333";
+
+            document.getElementById("save").onclick= function(event){
+                saveDocument(id);
+            };
+          };
+          assignEvent();
+          console.dir(assignEvent)
+
+      }
+
+      function Book(title, publisher){
+        this.title = title;
+        this.publisher = publisher;
+      }
+
+      Book.prototype.sayTitle = function(){
+       // alert(this.title);
+      }
+
+      var book1 = new Book("book1","Yahoo");
+      var book2 = new Book("book2","han");
+
+      // alert(book2 instanceof Book);
+      // alert(book2 instanceof Object);
+
+      book1.sayTitle();
+      console.dir(Book);
+
+      function hasElements(element,className1, className2){
+        return element.className==className1 || element.className == className2;
+      }
+
+      function hasElements(element,className1, className2){
+        var elemClassName = element.className;
+
+        return elemClassName==className1 || elemClassName==className2;
+      }
+
+      function toggle(element){
+        if(YAHOO.util.Dom.hasClass(element,"selected")){
+            YAHOO.util.Dom.removeClass(element,"selected");
+            return false;
+        }else{
+            YAHOO.util.Dom.addClass(element,"selected");
+            return true;
+        }
+      };
+
+      function toggle(element){
+        var YAHOOutilDom = YAHOO.util.Dom;
+
+        if(YAHOOutilDom.hasClass(element,"selected")){
+            YAHOOutilDom.removeClass(element,"selected");
+
+            return false;
+        }else{
+            YAHOOutilDom.addClass(element,"selected");
+            return true;
+        }
+
+      }
+    window.onload = function(){
+      // function innerHtmlLoop(){
+      //   for(var count = 0; count<1500; count++){
+      //       document.getElementById('here').innerHTML +='a';
+      //   };
+      // }
+
+      // function innerHtmlLoop(){
+      //   var content='';
+
+      //   for(var count =0; count<1500;count++){
+      //       content +='a';
+      //   }
+      //   document.getElementById('here').innerHTML+=content;
+      // }
+
+      // innerHtmlLoop();
+        // console.dir(document.getElementById('here').cloneNode);
+
+        // function tableCloneNode(){
+        //     var test = document.createElement('a').cloneNode(true);
+        //     var im = test.appendChild(document.createTextNode('true'));
+
+        //     document.getElementById('here').appendChild(im);
+        // };
+        // tableCloneNode();
+        // console.log(document.getElementsByTagName('p'));
+
+        // // var alldivs = document.getElementsByTagName('div');
+        // // for(var i =0; i<alldivs.length;i++){
+        // //    document.body.appendChild(document.createElement('div'));
+        // // }
+
+        // function toArray(coll){
+        //     for(var i =0, a=[], len=coll.length; i<len; i++){
+        //         a[i]=coll[i];
+        //     }
+        //     return a;
+        // }
+        // var coll = document.getElementsByTagName('div');
+        // var arr =toArray(coll);
+        // var name ='';
+
+        // function collectionGlobal(){
+
+        //     for(var count=0; count<document.getElementsByTagName('div').length; count++){
+        //         name += document.getElementsByTagName('div')[count].nodeName;
+        //         name += document.getElementsByTagName('div')[count].nodeType;
+        //         name += document.getElementsByTagName('div')[count].tagName;
+        //     };
+        //     return name;
+        // };
+        // console.log(collectionGlobal());
+
+        // function collectionGlobal2(){
+        //     var coll = document.getElementsByTagName('div'),
+        //         len =coll.length,
+        //         name ='';
+
+        //     for(var count=0; count<len; count++){
+        //         name += coll[count].nodeName;
+        //         name += coll[count].nodeType;
+        //         name += coll[count].tagName;
+        //     };
+        //     return name;
+        // };
+        // console.log(collectionGlobal2());
+
+        // function collectionGlobal3(){
+        //     var coll = document.getElementsByTagName('div'),
+        //         len =coll.length,
+        //         name ='',
+        //         currentColl=null;
+
+        //     for(var count=0; count<len; count++){
+        //         currentColl =coll[count];
+        //         name += currentColl.nodeName;
+        //         name += currentColl.nodeType;
+        //         name += currentColl.tagName;
+        //     };
+        //     return name;
+        // };
+        // console.log(collectionGlobal3());
+
+
+        function testNextSibiling(){
+            var el = document.getElementById('here'),
+                ch = el.firstChild,
+                name =null;
+
+                console.log(ch);
+            do{
+                name = ch.nodeName;
+
+            }while(ch=ch.nextSibling){
+                console.log(name);
+                return name;
+            }
+        }
+        testNextSibiling()
+        console.dir(testNextSibiling());
+
+        function testChildSibiling(){
+            var el = document.getElementById('here'),
+                ch = el.childNodes,
+                len = ch.length,
+                naem=null;
+
+            for(var i =0; i<len; i++){
+                name = ch[i].nodeName;
+            }
+            return name;
+        }
+
+        var element1 = document.querySelectorAll('#here span');
+        var element2 = document.getElementById('here').getElementsByTagName('span');
+
+        console.dir(element1);
+        console.dir(element2);
+
+        var BFRmoveQuery = document.querySelectorAll('p');
+        var BFRmoveGet = document.getElementsByTagName('p');
+        var div = document.querySelector('#here');
+
+        console.log('BFRmoveQuery: '+BFRmoveQuery.length+', BFRmoveGet: '+BFRmoveGet.length);
+
+        //div.innerHTML='';
+        console.log('BFRmoveQuery: '+BFRmoveQuery.length+', BFRmoveGet: '+BFRmoveGet.length);
+
+        var el = document.getElementById('chil2');
+        // el.style.borderBottom="1px";
+        // el.style.borderTop="1px";
+        // el.style.borderColor="red";
+        // el.style.borderStyle="solid";
+
+        el.style.cssText ='border-bottom:1px; border-top:1px; border-color:red; border-style:solid;';
+        el.style.cssText +='font-size:20px;';
+
+        var data =[
+            {"name":"Nicholas","url":"http://nczonline.net"},
+            {"name":"Jason","url":"http://jasononline.co.kr"}
+        ];
+
+        function appendDataToElement(appendToElement,data){
+            var a, li;
+            for(var i=0, max=data.length; i< max; i++){
+                a= document.createElement('a');
+                a.href = data[i].url;
+                a.appendChild(document.createTextNode(data[i].name));
+                li = document.createElement('li');
+                li.appendChild(a);
+                appendToElement.appendChild(li);
+
+            }
+        };
+
+        // var ul =document.getElementById('mylist');
+        // ul.style.display ="none";
+        // appendDataToElement(ul,data);
+        // ul.style.display="block";
+
+        // var fragment = document.createDocumentFragment();
+        // appendDataToElement(fragment,data);
+        // document.getElementById('mylist').appendChild(fragment);
+
+        var old = document.getElementById('mylist');
+        var clone =old.cloneNode(true);
+        appendDataToElement(clone,data);
+        console.log(old);
+        old.parentNode.replaceChild(clone,old);
+
+        // var currentLeft =myElement.offsetLeft;
+        // var currentTop = myElement.offsetTop;
+        // myElement.style.left = (currentLeft+1) +'px';
+        // myElement.style.top = (currentTop+1) +'px';
+
+        // if(currentLeft>=500){
+        //     stopAnumation();
+        // }
+
+        // lens = items.length;
+        // for(var i=lens; i>=0; i--){
+        //     process(items[i]);
+        // };
+        // var j =lens-1;
+        // while(j--){
+        //     process(items[j]);
+        // };
+
+        // var k =lens-1;
+        // do{
+        //     process(items[k]);
+        // }while(k--);
+
+
+        // var interations =Math.floor(items.length/8),
+        //     startAt=items.length%8,
+        //     i=0;
+        // do{
+        //     switch(startAt){
+        //         case 0: process(items[i++]);
+        //         case 7: process(items[i++]);
+        //         case 6: process(items[i++]);
+        //         case 5: process(items[i++]);
+        //         case 4: process(items[i++]);
+        //         case 3: process(items[i++]);
+        //         case 2: process(items[i++]);
+        //         case 1: process(items[i++]);
+                
+        //     }
+        //     startAt=0;
+        // }while(interations--);
+
+        // var interations =items.length%8,//length=10
+        //     i=items.length-1;//9--> 아래 두번 루프돌고 7 입력됨.
+
+        // while(interations){
+        //     process(items[i--]);//> 9-8
+        //     interations--;//1반환->0반환 종료
+        // }
+
+        // interations = Math.floor(items.length/8);//1
+
+        // while(interations){//1
+        //     process(items[i--]);
+        //     process(items[i--]);
+        //     process(items[i--]);
+        //     process(items[i--]);
+        //     process(items[i--]);
+        //     process(items[i--]);
+        //     process(items[i--]);
+        //     process(items[i--]);
+        //     interations--;
+        // };
+
+        // items.forEach(function(value,index,array){
+        //     process(value);
+        // });
+
+
+
+        var items =[1,2,3];
+
+            var i =0;
+        
+        function eachTest(value, a){
+
+            return i+=value;
+        }
+        items.forEach(eachTest);
+        document.getElementById('save').innerHTML+=i;
+        console.dir(Function.prototype);
+
+    }
+
+    function merge(left,right){
+        var result = [];
+
+        while(left.length>0 && right.length>0){
+            if(left[0]<right[0]){
+                result.push(left.shift());
+            }else{
+                result.push(right.shift());
+            }
+        };
+        return result.concat(left).concat(right);
+    }
+
+    // function mergeSort(items){
+    //     if(items.length ==1){
+    //         return items;
+    //     }
+
+    //     var middle = Math.floor(items.length/2),
+    //         left = items.slice(1,middle),
+    //         right =items.slice(middle);
+
+    //     return merge(mergeSort(left),mergeSort(right));
+    // };
+
+    var items = [1,2,3,4,5,6];
+    //console.log(mergeSort(items));
+
+    function mergeSoft(items){
+        if(items.length==1){
+            return items;
+        }
+
+        var work =[];
+
+        for(var i =0, len=items.length; i<len; i++){
+            work.push([items[i]]);
+        }
+        work.push([]);
+
+        for(var lim=len; lim>1; lim=Math.floor((lim+1)/2)){
+            for(var j =0, k=0; k<lim; j++,k+=2){
+                work[j] = merge(work[k],work[k+1]);
+            }
+            work[j] =[];
+        };
+        return work[0];
+
+    }
+
+    function memFactorial(n){
+        if(!memFactorial.cache){
+            memFactorial.cache={"0":1,"1":1};
+        }
+        if(!memFactorial.cache.hasOwnProperty(n)){
+            memFactorial.cache[n]= n*memFactorial(n-1);//5*fac(4)/4*fact(3)/3*fact(2)/2*fact(1);
+        }
+        console.log(memFactorial.cache);
+        return memFactorial.cache[n];
+    }
+
+    var fact6 =memFactorial(6);
+    var fact5 =memFactorial(5);
+
+    console.log(fact5);
+    console.log(fact6);
+
+
+    function factorial(n){
+        if(n==0){
+            return 1;
+        }else{
+            return n * factorial(n-1);
+        }
+    }
+    console.log(factorial(4));
+
+    function memoize(fundational, cache){
+        cache = cache ||{};
+        var shell = function(arg){
+            if(!cache.hasOwnProperty(arg)){
+                cache[arg]= fundational(arg);
+            }
+
+            return cache[arg];
+        };
+        return shell;
+    }
+    var memFactorial = memoize(factorial,{"0":1,"1":1});//
+
+
+  </script>
+  
+</head>
+<body>
+    <p id="save">Hellow World!</p>
+    <div id="here" title="roop1">
+        <span id="chil1">Roop1</span>
+        <p id="chil2">Roop2</p>
+        <span class="chil3">Roop3</span>
+    </div>
+    <h1>TEST</h1>
+    <ul id ="mylist">
+        <li><a href="http://phpied.com">Stoyan</a></li>
+        <li><a href="http://julienlecomte.com">Julien</a></li>
+    </ul>
+    <!--추천하는 자바스크립트 위치 -->
+    <script type="text/javascript" defer>
+     
+        // var script= document.createElement('script');
+        // script.type = "text/javascript";
+        
+        // function loadScript(url,callback){
+        //     if(script.readyState){
+        //         script.onreadystatechange = function(){
+        //             if(script.readyState=='loaded'|| script.readyState=="complete"){
+        //                 script.onreadystatechange=null;
+        //                 callback('ie');
+        //             }
+        //         };
+        //     }else{
+        //         script.onload = function(){
+        //          callback('chrome');
+        //         };
+        //     }
+
+        //     script.src =url;
+
+        //     document.getElementsByTagName('head')[0].appendChild(script);
+        // }
+
+        // loadScript('wms.js',function(browser){
+        //     alert(browser+" script loaded!!");
+        // });
+    </script>
+    <script type="text/javascript" src ="http://yui.yahooapis.com/combo?3.0.0/build/yui/yui-min.js"></script>
+    <script type="text/javascript" src="loaded.js"></script>
+    <script type="text/javascript">
+        YUI().use("dom",function(Y){
+            Y.DOM.addClass(document.body,"loaded");
+        });
+    </script>
+
+</body>
+</html>
